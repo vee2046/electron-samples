@@ -1,3 +1,8 @@
+try {
+	// 热更新
+    require('electron-reloader')(module);
+} catch (_) { }
+
 const {
 	app,
 	BrowserWindow,
@@ -21,7 +26,7 @@ function createWindow() {
 
 	// 预加载js中可调用事件
 	ipcMain.handle('dark-mode:toggle', (event, message) => {
-		console.log('call dark-mode:toggle-----> message= 1', message)
+		console.log('call dark-mode:toggle-----> message= 2', message)
 		if (nativeTheme.shouldUseDarkColors) {
 			nativeTheme.themeSource = 'light'
 		} else {
